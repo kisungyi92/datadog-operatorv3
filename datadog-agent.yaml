@@ -1,3 +1,4 @@
+
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -62,20 +63,12 @@ spec:
 
           mutateUnlabelled: false
 
-# Destination cluster and namespace to deploy the application
+  destination:
 
-destination:
-
-  server: https://kubernetes.default.svc
-
-  namespace: default
-
-syncPolicy:
-
-  automated: {}
-
-  syncOptions:
-
-  - Validate=false
-
-  - CreateNamespace=true
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - Validate=false
+      - CreateNamespace=true
