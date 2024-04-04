@@ -9,7 +9,7 @@ labels:
   env: prod
 
 spec:
-  project: datadog
+  project: datadog-operatorv3
   source:
     repoURL: https://helm.datadoghq.com
     targetRevision: 3.59.3
