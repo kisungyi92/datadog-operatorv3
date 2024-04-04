@@ -7,18 +7,14 @@ labels:
   name: datadog
   env: prod
 
-source:
-
-  repoURL: https://helm.datadoghq.com
-
-  targetRevision: 3.59.3
-
-  chart: datadog
-
+spec:
+  project : datadog
+  source:
+    repoURL: https://helm.datadoghq.com
+    targetRevision: 3.59.3
+    chart: datadog
   helm:
-
     releaseName: datadog
-
     values: |
 
       datadog:
