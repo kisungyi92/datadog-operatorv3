@@ -9,66 +9,23 @@ labels:
   env: prod
 
 spec:
-  project : datadog
+  project: datadog
   source:
     repoURL: https://helm.datadoghq.com
     targetRevision: 3.59.3
     chart: datadog
-  helm:
-    releaseName: datadog
-    values: |
-
-      datadog:
-
-        apiKeyExistingSecret: datadog-secret
-
-        appKeyExistingSecret: datadog-secret
-
-        site: datadoghq.com
-
-        logs:
-
-          enabled: true
-
-          containerCollectAll: true
-
-        apm:
-
-          portEnabled: true
-
-        processAgent:
-
-          enabled: true
-
-          processCollection: true
-
-        orchestratorExplorer:
-
-          enabled: true
-
-        env:
-
-        - name: DD_KUBELET_TLS_VERIFY
-
-          value: "false"
-        - name: DD_EC2_PREFER_IMDSV2
-
-          value: "true"
-
-      clusterAgent:
-
-        admissionController:
-
-          enabled: true
-
-          mutateUnlabelled: false
-
+    helm:
+      releaseName: datadog
+      values: |
+        datadog:
+          apiKeyExistingSecret: datadog-secret
+          appKeyExistingSecret: datadog-secret
+          site: datadoghq.com
   destination:
-
     server: https://kubernetes.default.svc
     namespace: default
   syncPolicy:
     automated: {}
     syncOptions:
-      - Validate=false
-      - CreateNamespace=true
+    - Validate=false
+    - CreateNamespace=true
