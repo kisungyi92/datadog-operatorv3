@@ -11,8 +11,8 @@ labels:
 spec:
   project: datadog-operatorv3
   source:
-    repoURL: https://helm.datadoghq.com
-    targetRevision: 3.59.3
+    repoURL: git@github.com:DataDog/helm-charts.git
+    targetRevision: datadog-3.59.4
     chart: datadog
     helm:
       releaseName: datadog
